@@ -1,7 +1,7 @@
 from typing import List
 from sqlalchemy.orm.exc import NoResultFound # type: ignore
 from src.models.sqlite.entities.pets import PetsTable
-from src.models.sqlite.interfeces.pets_repository import PetsRepositoryInterface
+from src.models.sqlite.interfaces.pets_repository import PetsRepositoryInterface
 
 class PetsRepository(PetsRepositoryInterface):
     def __init__(self, db_connection) -> None:
