@@ -1,5 +1,5 @@
 from src.models.sqlite.interfaces.pets_repository import PetsRepositoryInterface
-from src.controllers.interfaces.person_delete_controller import PetDeleteControllerInterface
+from src.controllers.interfaces.pet_delete_controller import PetDeleteControllerInterface
 
 class PetDeleteController(PetDeleteControllerInterface):
     def __init__(self, pet_repository: PetsRepositoryInterface) -> None:
