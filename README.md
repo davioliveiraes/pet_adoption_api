@@ -11,6 +11,7 @@ API RESTful para gerenciamento de adoção de animais de estimação, desenvolvi
 - [Funcionalidades](#funcionalidades)
 - [Instalação](#instalação)
 - [Execução](#execução)
+- [Demo Online](#demo-online)
 - [Testes](#testes)
 - [Qualidade de Código](#qualidade-de-código)
 - [Endpoints da API](#endpoints-da-api)
@@ -143,18 +144,17 @@ O banco pode ser visualizado e gerenciado através do **DBeaver**.
 ## Funcionalidades
 
 ### Gestão de Pessoas
-- ✅ **POST** `/person` - Cadastrar pessoa adotante
-- ✅ **GET** `/person/{person_id}` - Buscar pessoa por ID
-- ✅ Validação de nomes (apenas letras A-Z)
-- ✅ Vinculação com pet via `pet_id`
+- **POST** `/person` - Cadastrar pessoa adotante
+- **GET** `/person/{person_id}` - Buscar pessoa por ID
+- Validação de nomes (apenas letras A-Z)
+- Vinculação com pet via `pet_id`
 
 ### Gestão de Pets
-- ✅ **GET** `/pets` - Listar todos os pets
-- ✅ **DELETE** `/pets/{name}` - Remover pet por nome
-- ✅ Tipos suportados: dog, cat, snake, hamster, donkey, ogro
+- **GET** `/pets` - Listar todos os pets
+- **DELETE** `/pets/{name}` - Remover pet por nome
+- Tipos suportados: dog, cat, snake, hamster, donkey, ogro
 
 ## Instalação
-
 ```bash
 # Clone o repositório
 git clone https://github.com/davioliveiraes/pet_adoption_api.git
@@ -174,7 +174,6 @@ pre-commit install
 ```
 
 ## Execução
-
 ```bash
 # Executar a aplicação
 python run.py
@@ -187,6 +186,30 @@ flask run --debug
 ```
 
 A API estará disponível em `http://localhost:3000`
+
+## Demo Online
+
+A API está disponível temporariamente no Render para fins didáticos e demonstração:
+
+**Base URL**: `https://seu-app.onrender.com`
+
+**Nota**: Este deploy é temporário e serve apenas para demonstração do projeto. O serviço pode estar inativo após período de inatividade (cold start).
+
+### Testando a Demo
+```bash
+# Listar pets
+curl https://seu-app.onrender.com/pets
+
+# Criar pessoa
+curl -X POST https://seu-app.onrender.com/person \
+  -H "Content-Type: application/json" \
+  -d '{"first_name":"Maria","last_name":"Silva","age":25,"pet_id":2}'
+
+# Buscar pessoa
+curl https://seu-app.onrender.com/person/1
+```
+
+**Atenção**: O banco de dados é reiniciado periodicamente, então os dados inseridos são temporários.
 
 ## Testes
 ```bash
@@ -386,7 +409,7 @@ DELETE http://localhost:3000/pets/cobra
 ## Testando no Postman
 
 1. **Importe os endpoints** na collection do Postman
-2. **Configure a base URL**: `http://localhost:3000`
+2. **Configure a base URL**: `http://localhost:3000` ou use a demo online
 3. **Endpoints disponíveis**:
    - `GET` Lister Pets
    - `POST` Create Person  
@@ -395,7 +418,7 @@ DELETE http://localhost:3000/pets/cobra
 
 ## Autor
 
-Desenvolvido por **Davi Oliveira** no curso de Python na **Rocketseat** 🚀
+Desenvolvido por **Davi Oliveira** no curso de Python na **Rocketseat**
 
 - LinkedIn: [Davi Oliveira](https://linkedin.com/in/davioliveiraes)
 
